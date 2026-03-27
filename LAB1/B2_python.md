@@ -223,13 +223,13 @@ print(f"{gio}:{phut}:{giay}")
 
 # 12. arr = [...]
 
-## a.
+## a. Xuât tất cả các số lẻ không chia hết cho 5
 
 ```pyhton
 print([x for x in arr if x % 2 != 0 and x % 5 != 0])
 ```
 
-## b.
+## b. Xuất tất cả các số Fibonacci
 
 ```python
 def is_fibo(n):
@@ -243,7 +243,7 @@ def is_fibo(n):
 print([x for x in arr if is_fibo(x)])
 ```
 
-## c.
+## c. Tìm số nguyên tố lớn nhất
 
 ```pyhton
 def is_prime(n):
@@ -257,21 +257,21 @@ primes = [x for x in arr if is_prime(x)]
 print(max(primes) if primes else "Không có")
 ```
 
-## d.
+## d. Tìm số Fibonacci bé nhất
 
 ```pyhton
 fibo_nums = [x for x in arr if is_fibo(x)]
 print(min(fibo_nums) if fibo_nums else "Không có")
 ```
 
-## e.
+## e. Tính trung bình các số lẻ
 
 ```python
 odd = [x for x in arr if x % 2 != 0]
 print(sum(odd)/len(odd) if odd else 0)
 ```
 
-## f.
+## f. Tính tích các phần tử là số lẻ không chia hết cho 3 trong mảng
 
 ```python
 result = 1
@@ -285,7 +285,7 @@ for x in arr:
 print(result if found else 0)
 ```
 
-## g.
+## g. Đổi chỗ 2 phần tử của danh sách, đầu vào là 2 vị trí cần đổi chỗ
 
 ```python
 i, j = 1, 3  # vị trí muốn đổi
@@ -294,13 +294,13 @@ print(arr)
 ```
 
 
-## h.
+## h. Đảo ngược trật tự các phần tử của danh sách
 
 ```python
 print(arr[::-1])
 ```
 
-## i.
+## i. Xuất tất cả các số lớn thứ nhì của danh sách
 
 ```python
 unique = list(set(arr))
@@ -308,7 +308,7 @@ unique.sort(reverse=True)
 print(unique[1] if len(unique) > 1 else "Không có")
 ```
 
-## j.
+## j. Tính tổng các chữ số của tất cả các số trong danh sách
 
 ```python
 def sum_digits(n):
@@ -317,15 +317,14 @@ def sum_digits(n):
 print(sum(sum_digits(x) for x in arr))
 ```
 
-
-## k.
+## k. Đếm số lần xuất hiện của một số trong danh sách
 
 ```python
 x = 5
 print(arr.count(x))
 ```
 
-## l.
+## l. Xuất các số xuất hiện n lần trong danh sách
 
 ```python
 n = 2
@@ -333,7 +332,7 @@ result = [x for x in set(arr) if arr.count(x) == n]
 print(result)
 ```
 
-## m.
+## m. Xuất các số xuất hiện nhiều lần nhất trong danh sách
 
 ```python
 from collections import Counter
