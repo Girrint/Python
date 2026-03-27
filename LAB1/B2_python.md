@@ -194,3 +194,153 @@ for i in range(1, n + 1):
 print("n! =", result)
 ```
 
+# 10
+
+```pyhton
+n = int(input("Nhập n: "))
+
+for i in range(n):
+    for j in range(n):
+        if j == 0 or i == n - 1 or i == j:
+            print("*", end=" ")
+        else:
+            print(" ", end=" ")
+    print()
+```
+
+# 11
+
+```pyhton
+soGiay = int(input("Nhập số giây: "))
+
+gio = soGiay // 3600
+du = soGiay % 3600
+phut = du // 60
+giay = du % 60
+
+print(f"{gio}:{phut}:{giay}")
+```
+
+# 12 arr = [...]
+
+## a.
+
+```pyhton
+print([x for x in arr if x % 2 != 0 and x % 5 != 0])
+```
+
+## b.
+
+```python
+def is_fibo(n):
+    a, b = 0, 1
+    while b <= n:
+        if b == n:
+            return True
+        a, b = b, a + b
+    return False
+
+print([x for x in arr if is_fibo(x)])
+```
+
+## c.
+
+```pyhton
+def is_prime(n):
+    if n < 2: return False
+    for i in range(2, int(n**0.5)+1):
+        if n % i == 0:
+            return False
+    return True
+
+primes = [x for x in arr if is_prime(x)]
+print(max(primes) if primes else "Không có")
+```
+
+## d.
+
+```pyhton
+fibo_nums = [x for x in arr if is_fibo(x)]
+print(min(fibo_nums) if fibo_nums else "Không có")
+```
+
+## e.
+
+```python
+odd = [x for x in arr if x % 2 != 0]
+print(sum(odd)/len(odd) if odd else 0)
+```
+
+## f.
+
+```python
+result = 1
+found = False
+
+for x in arr:
+    if x % 2 != 0 and x % 3 != 0:
+        result *= x
+        found = True
+
+print(result if found else 0)
+```
+
+## g.
+
+```python
+i, j = 1, 3  # vị trí muốn đổi
+arr[i], arr[j] = arr[j], arr[i]
+print(arr)
+```
+
+
+## h.
+
+```python
+print(arr[::-1])
+```
+
+## i.
+
+```python
+unique = list(set(arr))
+unique.sort(reverse=True)
+print(unique[1] if len(unique) > 1 else "Không có")
+```
+
+## j.
+
+```python
+def sum_digits(n):
+    return sum(int(d) for d in str(abs(n)))
+
+print(sum(sum_digits(x) for x in arr))
+```
+
+
+## k.
+
+```python
+x = 5
+print(arr.count(x))
+```
+
+## l.
+
+```python
+n = 2
+result = [x for x in set(arr) if arr.count(x) == n]
+print(result)
+```
+
+## m.
+
+```python
+from collections import Counter
+
+count = Counter(arr)
+max_freq = max(count.values())
+
+result = [x for x in count if count[x] == max_freq]
+print(result)
+```
