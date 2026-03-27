@@ -1,4 +1,4 @@
-# 1
+# 1 Tính
 
 ```python
 a = input("Nhập a: ")
@@ -23,7 +23,7 @@ print("a/b = ", a/b)
 print("a^b = ", a ** b)
 ```
 
-# 2
+# 2 Diện tích hình chữ nhật
 
 ```python
 a = input("Nhập chiều dài : ")
@@ -34,7 +34,7 @@ s = a *b
 print("Diện tích hình chữ nhật: S = ", s)
 ```
 
-# 3
+# 3 Xuất tất cả các số nguyên tố trong 1 khoảng cho trước
 
 ```python
 def is_prime(n):
@@ -74,7 +74,7 @@ else:
     print("Không phải số Fibonacci")
 ```
 
-# 5
+# 5 Tìm số Fibonacci thứ n (dùng đệ quy và không đệ quy)
 
 ## Dùng đệ quy
 
@@ -102,7 +102,7 @@ print("Fibonacci thứ", n, "=", fib_iterative(n))
 ```
 
 
-# 6
+# 6 Tính tổng n số Fibonacci đầu tiên (dùng đệ quy và không đệ quy)
 
 ## Đệ quy
 
@@ -138,7 +138,7 @@ n = int(input("Nhập n: "))
 print("Tổng =", sum_fib_iterative(n))
 ```
 
-# 7
+# 7 Tính tổng căn bậc 2 của n số nguyên đầu tiên
 
 ```python
 import math
@@ -152,7 +152,7 @@ for i in range(1, n + 1):
 print("Tổng =", S)
 ```
 
-# 8
+# 8 Giải phương trình bậc 2: ax2 + bx + c=0
 
 ```python
 import math
@@ -182,7 +182,7 @@ else:
         print("Phương trình vô nghiệm (trong R)")
 ```
 
-# 9
+# 9 Tính n!
 
 ```python
 n = int(input("Nhập n: "))
@@ -194,7 +194,7 @@ for i in range(1, n + 1):
 print("n! =", result)
 ```
 
-# 10
+# 10 In * dạng tam giác dưới như hình bên, đầu vào là số hàng(cột)
 
 ```pyhton
 n = int(input("Nhập n: "))
@@ -208,7 +208,7 @@ for i in range(n):
     print()
 ```
 
-# 11
+# 11 Đổi giờ - phút – giây
 
 ```pyhton
 soGiay = int(input("Nhập số giây: "))
