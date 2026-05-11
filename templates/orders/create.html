@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+
+    <div class="col-md-10">
+
+        <div class="card shadow">
+
+            <div class="card-body">
+
+                <h3 class="mb-4">
+
+                    Create Order
+
+                </h3>
+
+                <form method="POST">
+
+                    <div class="mb-4">
+
+                        <label>
+                            Customer
+                        </label>
+
+                        <select
+                            name="customer_id"
+                            class="form-select"
+                            required
+                        >
+
+                            <option value="">
+                                Select customer
+                            </option>
+
+                            {% for customer in customers %}
+
+                            <option
+                                value="{{ customer.id }}"
+                            >
+                                {{ customer.name }}
+                            </option>
+
+                            {% endfor %}
+
+                        </select>
+
+                    </div>
+
+                    <table class="table table-bordered">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Product</th>
+
+                                <th width="180">
+                                    Quantity
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            {% for product in products %}
+
+                            <tr>
+
+                                <td>
+
+                                    {{ product.name }}
+
+                                    (${{ product.price }})
+
+                                </td>
+
+                                <td>
+
+                                    <input
+                                        type="number"
+                                        name="quantity"
+                                        class="form-control"
+                                        min="0"
+                                        value="0"
+                                    >
+
+                                    <input
+                                        type="hidden"
+                                        name="product_id"
+                                        value="{{ product.id }}"
+                                    >
+
+                                </td>
+
+                            </tr>
+
+                            {% endfor %}
+
+                        </tbody>
+
+                    </table>
+
+                    <button
+                        class="btn btn-success"
+                    >
+
+                        Create Order
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

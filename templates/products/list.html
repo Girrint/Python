@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="d-flex
+            justify-content-between
+            align-items-center
+            mb-4">
+
+    <h2>Products</h2>
+
+    <a
+        href="/products/create"
+        class="btn btn-primary"
+    >
+        Add Product
+    </a>
+
+</div>
+
+<form class="mb-4">
+
+    <input
+        type="text"
+        name="search"
+        class="form-control"
+        placeholder="Search product..."
+        value="{{ request.args.get('search', '') }}"
+    >
+
+</form>
+
+{% if not products %}
+
+<div class="alert alert-info">
+
+    No products found.
+
+</div>
+
+{% endif %}
+
+<div class="row">
+
+{% for product in products %}
+
+<div class="col-md-4 mb-4">
+
+    <div class="card shadow-sm h-100">
+
+        {% if product.image %}
+
+        <img
+            src="{{ url_for(
+                'static',
+                filename='uploads/' + product.image
+            ) }}"
+            class="card-img-top"
+            style="
+                height:220px;
+                object-fit:cover;
+            "
+        >
+
+        {% endif %}
+
+        <div class="card-body">
+
+            <h5>
+                {{ product.name }}
+            </h5>
+
+            <p>
+                ${{ product.price }}
+            </p>
+
+            <p>
+                Stock:
+                {{ product.quantity }}
+            </p>
+
+            <div class="d-flex gap-2">
+
+                <a
+                    href="/products/detail/{{ product.id }}"
+                    class="btn btn-primary btn-sm"
+                >
+                    View
+                </a>
+
+                <a
+                    href="/products/edit/{{ product.id }}"
+                    class="btn btn-warning btn-sm"
+                >
+                    Edit
+                </a>
+
+                <a
+                    href="/products/delete/{{ product.id }}"
+                    class="btn btn-danger btn-sm"
+                    onclick="
+                        return confirm(
+                            'Delete this product?'
+                        )
+                    "
+                >
+                    Delete
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+{% endblock %}

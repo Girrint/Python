@@ -1,0 +1,43 @@
+body {
+
+    background-color: #f5f6fa;
+
+}
+
+.card {
+
+    border: none;
+
+    border-radius: 12px;
+
+}
+
+.card-body {
+
+    padding: 24px;
+
+}
+
+.table {
+
+    background: white;
+
+}
+
+.btn {
+
+    border-radius: 8px;
+
+}
+
+.navbar-brand {
+
+    font-weight: bold;
+
+}
+
+img {
+
+    border-radius: 12px;
+
+}
