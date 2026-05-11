@@ -27,7 +27,7 @@ order_bp = Blueprint(
 @login_required
 def list_orders():
 
-    orders = Order.query.order_by(
+    orders = Order.query.options(db.joinedload(Order.customer)).order_by(
         Order.created_at.desc()
     ).all()
 

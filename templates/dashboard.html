@@ -2,23 +2,40 @@
 
 {% block content %}
 
-<h2 class="mb-4">
+<div class="d-flex justify-content-between align-items-center mb-4">
 
-    Dashboard
+    <div>
 
-</h2>
+        <h1 class="fw-bold mb-1">
+            Dashboard
+        </h1>
 
-<div class="row">
+        <p class="text-muted mb-0">
+            Welcome back to your store management system
+        </p>
 
-    <div class="col-md-4">
+    </div>
 
-        <div class="card shadow-sm">
+</div>
 
-            <div class="card-body">
+<div class="row g-4">
 
-                <h5>Total Products</h5>
+    <!-- Products -->
+    <div class="col-lg-3 col-md-6">
 
-                <h2>
+        <div class="dashboard-card product-card">
+
+            <div class="card-icon">
+                📦
+            </div>
+
+            <div>
+
+                <p class="card-title">
+                    Total Products
+                </p>
+
+                <h2 class="card-value">
                     {{ total_products }}
                 </h2>
 
@@ -28,15 +45,22 @@
 
     </div>
 
-    <div class="col-md-4">
+    <!-- Orders -->
+    <div class="col-lg-3 col-md-6">
 
-        <div class="card shadow-sm">
+        <div class="dashboard-card order-card">
 
-            <div class="card-body">
+            <div class="card-icon">
+                🧾
+            </div>
 
-                <h5>Total Orders</h5>
+            <div>
 
-                <h2>
+                <p class="card-title">
+                    Total Orders
+                </p>
+
+                <h2 class="card-value">
                     {{ total_orders }}
                 </h2>
 
@@ -46,16 +70,23 @@
 
     </div>
 
-    <div class="col-md-4">
+    <!-- Revenue -->
+    <div class="col-lg-3 col-md-6">
 
-        <div class="card shadow-sm">
+        <div class="dashboard-card revenue-card">
 
-            <div class="card-body">
+            <div class="card-icon">
+                💰
+            </div>
 
-                <h5>Total Revenue</h5>
+            <div>
 
-                <h2>
-                    ${{ total_revenue }}
+                <p class="card-title">
+                    Total Revenue
+                </p>
+
+                <h2 class="card-value">
+                    ${{ "{:,.0f}".format(total_revenue) }}
                 </h2>
 
             </div>
@@ -64,17 +95,133 @@
 
     </div>
 
-    <div class="col-md-4 mt-3">
+    <!-- Customers -->
+    <div class="col-lg-3 col-md-6">
 
-        <div class="card shadow-sm">
+        <div class="dashboard-card customer-card">
+
+            <div class="card-icon">
+                👥
+            </div>
+
+            <div>
+
+                <p class="card-title">
+                    Total Customers
+                </p>
+
+                <h2 class="card-value">
+                    {{ total_customers }}
+                </h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="row mt-4 g-4">
+
+    <div class="col-lg-8">
+
+        <div class="card dashboard-panel">
 
             <div class="card-body">
 
-                <h5>Total Customers</h5>
+                <h5 class="fw-bold mb-3">
+                    Store Overview
+                </h5>
 
-                <h2>
-                    {{ total_customers }}
-                </h2>
+                <p class="text-muted">
+
+                    Your store system is running normally.
+                    You can manage products, customers,
+                    and orders from the navigation menu.
+
+                </p>
+
+                <div class="row text-center mt-4">
+
+                    <div class="col-4">
+
+                        <h4 class="fw-bold text-primary">
+                            {{ total_products }}
+                        </h4>
+
+                        <small class="text-muted">
+                            Products
+                        </small>
+
+                    </div>
+
+                    <div class="col-4">
+
+                        <h4 class="fw-bold text-success">
+                            {{ total_orders }}
+                        </h4>
+
+                        <small class="text-muted">
+                            Orders
+                        </small>
+
+                    </div>
+
+                    <div class="col-4">
+
+                        <h4 class="fw-bold text-warning">
+                            {{ total_customers }}
+                        </h4>
+
+                        <small class="text-muted">
+                            Customers
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-4">
+
+        <div class="card dashboard-panel">
+
+            <div class="card-body">
+
+                <h5 class="fw-bold mb-3">
+                    Quick Actions
+                </h5>
+
+                <div class="d-grid gap-3">
+
+                    <a class="btn btn-primary"
+                       href="{{ url_for('product.create_product') }}">
+
+                        + Add Product
+
+                    </a>
+
+                    <a class="btn btn-success"
+                       href="{{ url_for('customer.create_customer') }}">
+
+                        + Add Customer
+
+                    </a>
+
+                    <a class="btn btn-warning"
+                       href="{{ url_for('order.create_order') }}">
+
+                        + Create Order
+
+                    </a>
+
+                </div>
 
             </div>
 

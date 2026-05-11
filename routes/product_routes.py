@@ -41,13 +41,16 @@ def allowed_file(filename):
 def list_products():
 
     keyword = request.args.get('search', '')
+    page = request.args.get('page', 1, type=int)
+
+    query = Product.query
 
     if keyword:
-        products = Product.query.filter(
+        query = query.filter(
             Product.name.contains(keyword)
-        ).all()
-    else:
-        products = Product.query.all()
+        )
+
+    products = query.paginate(page=page, per_page=12, error_out=False)
 
     return render_template(
         'products/list.html',
@@ -179,6 +182,17 @@ def edit_product(id):
         product.description = request.form.get(
             'description'
         )
+
+        image_file = request.files.get('image')
+
+        if image_file and allowed_file(image_file.filename):
+            filename = secure_filename(image_file.filename)
+            image_path = os.path.join(
+                current_app.config['UPLOAD_FOLDER'],
+                filename
+            )
+            image_file.save(image_path)
+            product.image = filename
 
         db.session.commit()
 

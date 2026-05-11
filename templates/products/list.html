@@ -55,11 +55,7 @@
                 'static',
                 filename='uploads/' + product.image
             ) }}"
-            class="card-img-top"
-            style="
-                height:220px;
-                object-fit:cover;
-            "
+            class="card-img-top product-image"
         >
 
         {% endif %}
@@ -118,5 +114,49 @@
 {% endfor %}
 
 </div>
+
+{% if products.has_prev or products.has_next %}
+<nav aria-label="Product pagination">
+    <ul class="pagination justify-content-center">
+        {% if products.has_prev %}
+        <li class="page-item">
+            <a class="page-link" href="{{ url_for('product.list_products', page=products.prev_num, search=request.args.get('search', '')) }}">Previous</a>
+        </li>
+        {% else %}
+        <li class="page-item disabled">
+            <span class="page-link">Previous</span>
+        </li>
+        {% endif %}
+
+        {% for page_num in products.iter_pages() %}
+            {% if page_num %}
+                {% if page_num == products.page %}
+                <li class="page-item active">
+                    <span class="page-link">{{ page_num }}</span>
+                </li>
+                {% else %}
+                <li class="page-item">
+                    <a class="page-link" href="{{ url_for('product.list_products', page=page_num, search=request.args.get('search', '')) }}">{{ page_num }}</a>
+                </li>
+                {% endif %}
+            {% else %}
+                <li class="page-item disabled">
+                    <span class="page-link">...</span>
+                </li>
+            {% endif %}
+        {% endfor %}
+
+        {% if products.has_next %}
+        <li class="page-item">
+            <a class="page-link" href="{{ url_for('product.list_products', page=products.next_num, search=request.args.get('search', '')) }}">Next</a>
+        </li>
+        {% else %}
+        <li class="page-item disabled">
+            <span class="page-link">Next</span>
+        </li>
+        {% endif %}
+    </ul>
+</nav>
+{% endif %}
 
 {% endblock %}

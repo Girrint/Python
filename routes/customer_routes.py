@@ -22,7 +22,19 @@ customer_bp = Blueprint(
 @login_required
 def list_customers():
 
-    customers = Customer.query.all()
+    keyword = request.args.get('search', '')
+    page = request.args.get('page', 1, type=int)
+
+    query = Customer.query
+
+    if keyword:
+        query = query.filter(
+            Customer.name.contains(keyword) |
+            Customer.phone.contains(keyword) |
+            Customer.email.contains(keyword)
+        )
+
+    customers = query.paginate(page=page, per_page=10, error_out=False)
 
     return render_template(
         'customers/list.html',

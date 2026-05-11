@@ -1,43 +1,229 @@
 body {
-
-    background-color: #f5f6fa;
-
+    background-color: #e8f4fd; /* Xanh nhạt nhẹ */
+    font-family: 'Arial', sans-serif;
 }
 
 .card {
-
-    border: none;
-
+    border: 1px solid #d1ecf1; /* Viền xanh nhạt */
     border-radius: 12px;
-
+    background-color: #ffffff; /* Trắng */
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.1); /* Bóng xanh nhạt */
 }
 
 .card-body {
-
     padding: 24px;
-
 }
 
 .table {
+    background: #ffffff; /* Trắng */
+    border-radius: 8px;
+    overflow: hidden;
+}
 
-    background: white;
-
+.table thead {
+    background-color: #d1ecf1; /* Xanh nhạt cho header */
 }
 
 .btn {
-
     border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
 
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+}
+
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+    color: white;
+}
+
+.btn-success:hover {
+    background-color: #1e7e34;
+    border-color: #1c7430;
+    box-shadow: 0 4px 8px rgba(40, 167, 69, 0.3);
+}
+
+.btn-warning {
+    background-color: #ffc107;
+    border-color: #ffc107;
+    color: #212529;
+}
+
+.btn-warning:hover {
+    background-color: #e0a800;
+    border-color: #d39e00;
+    box-shadow: 0 4px 8px rgba(255, 193, 7, 0.3);
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #bd2130;
+    border-color: #b21f2d;
+    box-shadow: 0 4px 8px rgba(220, 53, 69, 0.3);
+}
+
+.btn-sm {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.875rem;
+}
+
+.navbar {
+    background-color: #ffffff !important; /* Trắng cho navbar */
+    border-bottom: 1px solid #d1ecf1;
 }
 
 .navbar-brand {
-
     font-weight: bold;
-
+    color: #007bff !important; /* Xanh cho brand */
 }
 
 img {
-
     border-radius: 12px;
+    border: 1px solid #d1ecf1;
+}
 
+.product-image {
+    width: 100%;
+    height: 220px;
+    object-fit: contain;
+    background-color: #f8fbff;
+    padding: 16px;
+}
+
+.product-image::after {
+    content: '';
+}
+
+.pagination .page-link {
+    color: #0056b3; /* Xanh đậm hơn */
+    background-color: #e8f4fd; /* Xanh nhạt như body */
+    border: 2px solid #bee5eb; /* Viền đậm hơn */
+    margin: 0 2px;
+    border-radius: 6px;
+    padding: 0.5rem 0.75rem;
+    font-weight: 600; /* Chữ đậm */
+    transition: all 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Bóng nhẹ */
+}
+
+.pagination .page-link:hover {
+    background-color: #bee5eb; /* Xanh đậm hơn khi hover */
+    border-color: #a8d5e0;
+    color: #003d82;
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+    transform: translateY(-1px); /* Nâng lên chút */
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.4);
+    font-weight: 700;
+}
+
+.pagination .page-item.disabled .page-link {
+    color: #adb5bd;
+    background-color: #f8f9fa;
+    border-color: #dee2e6;
+    box-shadow: none;
+}
+
+.alert {
+    border-radius: 8px;
+}
+
+.navbar .nav-link {
+    color: #212529 !important;
+    opacity: 1 !important;
+    font-weight: 600;
+}
+
+.navbar .nav-link:hover {
+    color: #007bff !important;
+}
+
+.navbar .nav-link.active {
+    color: #007bff !important;
+    background-color: #f1f3f5;
+    border-radius: 6px;
+}
+
+.dashboard-card {
+    background: white;
+    border-radius: 18px;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    transition: 0.3s;
+    border: none;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+}
+
+.card-icon {
+    width: 65px;
+    height: 65px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    background: rgba(0,123,255,0.1);
+}
+
+.card-title {
+    margin-bottom: 6px;
+    color: #6c757d;
+    font-weight: 600;
+}
+
+.card-value {
+    margin: 0;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.product-card .card-icon {
+    background: rgba(13,110,253,0.15);
+}
+
+.order-card .card-icon {
+    background: rgba(25,135,84,0.15);
+}
+
+.revenue-card .card-icon {
+    background: rgba(255,193,7,0.2);
+}
+
+.customer-card .card-icon {
+    background: rgba(111,66,193,0.15);
+}
+
+.dashboard-panel {
+    border: none;
+    border-radius: 18px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
 }

@@ -12,7 +12,8 @@ from routes.product_routes import product_bp
 from routes.customer_routes import customer_bp
 from routes.order_routes import order_bp
 from routes.api_routes import api_bp
-
+from flask import render_template
+from models import Product
 
 app = Flask(__name__)
 
@@ -45,3 +46,8 @@ app.register_blueprint(api_bp)
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+@app.route("/")
+def index():
+    products = Product.query.all()
+    return render_template("index.html", products=products)
