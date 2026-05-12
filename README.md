@@ -87,6 +87,11 @@ python -3.12 -m venv venv
 .\venv\Scripts\activate
 ```
 
+### Huỷ kích hoạt venv:
+```
+deactivate
+```
+
 ### Cài thư viện
 ```
 pip install -r requirements.txt
